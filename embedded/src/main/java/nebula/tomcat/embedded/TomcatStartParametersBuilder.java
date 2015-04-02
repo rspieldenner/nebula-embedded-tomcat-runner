@@ -4,7 +4,7 @@ import java.io.File;
 
 public class TomcatStartParametersBuilder {
     public TomcatStartParameters build() {
-        String tomcatPortSysProp = TomcatStartParameterSystemProperty.PORT.getProperty();
+        String tomcatPortSysProp = TomcatStartParameterSystemProperty.HTTP_PORT.getProperty();
         String tomcatContextPathSysProp = TomcatStartParameterSystemProperty.CONTEXT_PATH.getProperty();
         String tomcatClassesDirSysProp = TomcatStartParameterSystemProperty.CLASSES_DIR.getProperty();
         String tomcatWebAppBaseDirSysProp = TomcatStartParameterSystemProperty.WEB_APP_BASE_DIR.getProperty();

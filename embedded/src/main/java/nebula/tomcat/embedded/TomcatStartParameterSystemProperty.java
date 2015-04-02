@@ -1,7 +1,7 @@
 package nebula.tomcat.embedded;
 
 public enum TomcatStartParameterSystemProperty {
-    PORT("tomcatPort"),
+    HTTP_PORT("tomcatHttpPort"),
     CONTEXT_PATH("tomcatContextPath"),
     CLASSES_DIR("tomcatClassesDir"),
     WEB_APP_BASE_DIR("tomcatWebAppBaseDir");

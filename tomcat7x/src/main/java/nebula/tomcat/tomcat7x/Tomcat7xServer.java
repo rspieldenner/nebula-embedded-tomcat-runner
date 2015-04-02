@@ -18,6 +18,7 @@ public class Tomcat7xServer implements TomcatServer {
             tomcat.setBaseDir(new File(new File(System.getProperty("user.home")), "embeddedTomcat7x").getCanonicalPath());
 
             StandardContext ctx = (StandardContext)tomcat.addWebapp(startParameters.getContextPath(), startParameters.getWebAppBaseDir().getCanonicalPath());
+            ctx.setReloadable(true);
 
             VirtualDirContext resources = new VirtualDirContext();
             resources.setExtraResourcePaths("/WEB-INF/classes=" + startParameters.getClassesDir());

@@ -88,6 +88,12 @@ The Tomcat instance can be configured through system properties. The following t
         <td><code>WebRoot</code></td>
         <td><code>tomcatWebAppBaseDir</code></td>
     </tr>
+    <tr>
+        <td>Classpath files</td>
+        <td>Comma-separated list of paths to external JAR files that will be added to the web application's classpath</td>
+        <td>Empty list</td>
+        <td><code>tomcatClasspathFiles</code></td>
+    </tr>
 </table>
 
 Let's say you want to run on a different port. Simply add the following system property to your command execution:

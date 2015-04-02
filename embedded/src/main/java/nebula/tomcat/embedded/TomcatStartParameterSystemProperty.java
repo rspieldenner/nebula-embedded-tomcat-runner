@@ -4,7 +4,8 @@ public enum TomcatStartParameterSystemProperty {
     HTTP_PORT("tomcatHttpPort"),
     CONTEXT_PATH("tomcatContextPath"),
     CLASSES_DIR("tomcatClassesDir"),
-    WEB_APP_BASE_DIR("tomcatWebAppBaseDir");
+    WEB_APP_BASE_DIR("tomcatWebAppBaseDir"),
+    CLASSPATH_FILES("tomcatClasspathFiles");
 
     private final String key;
 

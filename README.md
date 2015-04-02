@@ -11,7 +11,7 @@ Provides an implementation of embedded Tomcat for the purpose of running a stand
     </tr>
     <tr>
         <td>Tomcat 7</td>
-        <th>7.0.59</th>
+        <td>7.0.59</td>
     </tr>
 </table>
 
@@ -66,27 +66,27 @@ The Tomcat instance can be configured through system properties. The following t
     </tr>
     <tr>
         <td>HTTP Port</td>
-        <th>HTTP port used for server</th>
-        <td>`8080`</td>
-        <td>`tomcatHttpPort`</td>
+        <td>HTTP port used for server</td>
+        <td><code>8080</code></td>
+        <td><code>tomcatHttpPort</code></td>
     </tr>
     <tr>
         <td>Context Path</td>
-        <th>Context path for application</th>
-        <td>`/test`</td>
-        <td>`tomcatContextPath`</td>
+        <td>Context path for application</td>
+        <td><code>/test</code></td>
+        <td><code>tomcatContextPath</code></td>
     </tr>
     <tr>
         <td>Classes Directory</td>
-        <th>Directory containing compiled class files</th>
-        <td>`/test`</td>
-        <td>`tomcatClassesDir`</td>
+        <td>Directory containing compiled class files</td>
+        <td><code>/test</code></td>
+        <td><code>tomcatClassesDir</code></td>
     </tr>
     <tr>
         <td>Web application base directory</td>
-        <th>Directory containing web assets like HTML files, JSPs etc.</th>
-        <td>`WebRoot`</td>
-        <td>`tomcatWebAppBaseDir`</td>
+        <td>Directory containing web assets like HTML files, JSPs etc.</td>
+        <td><code>WebRoot</code></td>
+        <td><code>tomcatWebAppBaseDir</code></td>
     </tr>
 </table>
 

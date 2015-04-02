@@ -1,4 +1,7 @@
 allprojects {
+    group = 'nebula.tomcat.embedded'
+    version = '0.1'
+
     apply plugin: 'idea'
 }
 
@@ -14,22 +17,5 @@ subprojects {
         testCompile('com.netflix.nebula:nebula-test:2.2.1') {
             exclude group: 'org.codehaus.groovy'
         }
-    }
-}
-
-apply plugin: 'base'
-
-group = 'nebula.tomcat.embedded'
-version = '0.1'
-
-task uberJar(type: Jar, dependsOn: subprojects.assemble) {
-    description = 'Creates Uberjar.'
-
-    subprojects.each { project ->
-        from project.configurations.archives.allArtifacts.files.collect { zipTree(it) }
-    }
-
-    manifest {
-        attributes 'Main-Class': 'nebula.tomcat.tomcat7x.TomcatRunner'
     }
 }

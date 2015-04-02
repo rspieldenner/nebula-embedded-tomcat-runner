@@ -1,7 +1,39 @@
+configurations {
+    compile.extendsFrom tomcat
+}
+
 dependencies {
     def tomcatVersion = '7.0.59'
-    compile "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
-            "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}",
-            "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+           "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}",
+           "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
     compile project(':embedded')
+}
+
+ext.distBaseName = 'embedded-tomcat7x-runner'
+
+task runnableJar(type: Jar) {
+    description = 'Creates runnable JAR that references main class name and classpath in manifest.'
+    ext.libsDirName = 'libs'
+    ext.distName = 'embedded-tomcat7x-runner'
+
+    baseName = distBaseName
+    from project(':embedded').sourceSets.main.output
+    from sourceSets.main.output
+
+    manifest {
+        attributes 'Main-Class': 'nebula.tomcat.tomcat7x.TomcatRunner',
+                   'Class-Path': configurations.tomcat.collect { "$libsDirName/$it.name" }.join(' ')
+    }
+}
+
+task distZip(type: Zip) {
+    description = 'Creates distribution ZIP containing runner JAR and Tomcat libraries.'
+    dependsOn runnableJar
+
+    baseName = distBaseName
+    from runnableJar.archivePath
+    from(configurations.tomcat) {
+        into runnableJar.libsDirName
+    }
 }

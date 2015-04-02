@@ -12,6 +12,10 @@ public enum TomcatStartParameterSystemProperty {
         this.key = key;
     }
 
+    public String getKey() {
+        return key;
+    }
+
     public String getProperty() {
         return System.getProperty(key);
     }

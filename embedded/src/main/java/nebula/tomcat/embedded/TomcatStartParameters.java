@@ -3,9 +3,24 @@ package nebula.tomcat.embedded;
 import java.io.File;
 
 public class TomcatStartParameters {
+    /**
+     * The port used to run the embedded Tomcat server. Defaults to {@code 8080}.
+     */
     private Integer port = 8080;
+
+    /**
+     * The context path used for the web application. Defaults to {@code /test}.
+     */
     private String contextPath = "/test";
+
+    /**
+     * The web application base directory containing web resources like JSPs, HTML files etc. Defaults to {@code WebRoot}.
+     */
     private File webAppBaseDir = new File("WebRoot");
+
+    /**
+     * The directory containing compiled class files. Defaults to {@code build/classes/main}.
+     */
     private File classesDir = new File("build/classes/main");
 
     public Integer getPort() {

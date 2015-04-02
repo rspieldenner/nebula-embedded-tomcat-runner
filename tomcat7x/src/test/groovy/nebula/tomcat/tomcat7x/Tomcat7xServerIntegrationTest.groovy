@@ -57,8 +57,8 @@ task downloadTomcatJars(type: Copy) {
                     pathelement(location: lib)
                 }
             }
-            sysproperty(key: TomcatStartParameterSystemProperty.CLASSES_DIR.property, value: new File(projectDir, 'build/classes/main').canonicalPath)
-            sysproperty(key: TomcatStartParameterSystemProperty.WEB_APP_BASE_DIR.property, value: new File(projectDir, 'src/main/webapp').canonicalPath)
+            sysproperty(key: TomcatStartParameterSystemProperty.CLASSES_DIR.key, value: new File(projectDir, 'build/classes/main').canonicalPath)
+            sysproperty(key: TomcatStartParameterSystemProperty.WEB_APP_BASE_DIR.key, value: new File(projectDir, 'src/main/webapp').canonicalPath)
         }
 
         then:

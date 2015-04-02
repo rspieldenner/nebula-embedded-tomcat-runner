@@ -12,6 +12,10 @@ subprojects {
         mavenCentral()
     }
 
+    configurations {
+        compile.extendsFrom tomcat
+    }
+
     dependencies {
         compile gradleApi()
         testCompile('com.netflix.nebula:nebula-test:2.2.1') {

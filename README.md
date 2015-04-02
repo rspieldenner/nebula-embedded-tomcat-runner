@@ -1,0 +1,94 @@
+# Embedded Tomcat Runner
+
+Provides an implementation of embedded Tomcat for the purpose of running a standalone server.
+
+### Supported Tomcat versions
+
+<table>
+    <tr>
+        <th>Major Version</th>
+        <th>Concrete Version</th>
+    </tr>
+    <tr>
+        <td>Tomcat 7</td>
+        <th>7.0.59</th>
+    </tr>
+</table>
+
+### Structure of distribution
+
+Executing the Gradle task `distZip` will create a distribution of a runnable Tomcat instance. The JAR file on the root
+level of the ZIP represents the executable Tomcat application. Its bundled manifest declares the main class name as well
+as the classpath to the embedded Tomcat libraries.
+
+    .
+    |____embedded-tomcat7x-runner-x.x.jar
+    |____libs
+      |____ecj-4.4.jar
+      |____tomcat-embed-core-7.0.59.jar
+      |____tomcat-embed-el-7.0.59.jar
+      |____tomcat-embed-jasper-7.0.59.jar
+      |____tomcat-embed-logging-juli-7.0.59.jar
+
+### Running the Tomcat instance
+
+Extract the distribution ZIP file on your machine and execute the command `java -jar embedded-tomcat7x-runner-x.x.jar`.
+You should see the output of Tomcat in your console. The output should look similar to this:
+
+    Apr 02, 2015 10:02:03 AM org.apache.coyote.AbstractProtocol init
+    INFO: Initializing ProtocolHandler ["http-bio-8080"]
+    Apr 02, 2015 10:02:03 AM org.apache.catalina.core.StandardService startInternal
+    INFO: Starting service Tomcat
+    Apr 02, 2015 10:02:03 AM org.apache.catalina.core.StandardEngine startInternal
+    INFO: Starting Servlet Engine: Apache Tomcat/7.0.59
+    Apr 02, 2015 10:02:03 AM org.apache.catalina.startup.ContextConfig getDefaultWebXmlFragment
+    INFO: No global web.xml found
+    Apr 02, 2015 10:02:03 AM org.apache.coyote.AbstractProtocol start
+    INFO: Starting ProtocolHandler ["http-bio-8080"]
+
+By default the Tomcat instance is configured to hot reload class files of your application. Simply recompile one or many
+of the classes in your project. After a couple of seconds you should see that Tomcat refreshes the context.
+
+    Apr 02, 2015 10:02:33 AM org.apache.catalina.core.StandardContext reload
+    INFO: Reloading Context with name [/test] has started
+
+### Configuration options
+
+The Tomcat instance can be configured through system properties. The following table shows all options, their default
+ values as well as the system property used for providing a custom value.
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Default Value</th>
+        <th>System Property</th>
+    </tr>
+    <tr>
+        <td>HTTP Port</td>
+        <th>HTTP port used for server</th>
+        <td>`8080`</td>
+        <td>`tomcatHttpPort`</td>
+    </tr>
+    <tr>
+        <td>Context Path</td>
+        <th>Context path for application</th>
+        <td>`/test`</td>
+        <td>`tomcatContextPath`</td>
+    </tr>
+    <tr>
+        <td>Classes Directory</td>
+        <th>Directory containing compiled class files</th>
+        <td>`/test`</td>
+        <td>`tomcatClassesDir`</td>
+    </tr>
+    <tr>
+        <td>Web application base directory</td>
+        <th>Directory containing web assets like HTML files, JSPs etc.</th>
+        <td>`WebRoot`</td>
+        <td>`tomcatWebAppBaseDir`</td>
+    </tr>
+</table>
+
+Let's say you want to run on a different port. Simply add the following system property to your command execution:
+`-DtomcatHttpPort=9090`.

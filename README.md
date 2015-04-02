@@ -79,7 +79,7 @@ The Tomcat instance can be configured through system properties. The following t
     <tr>
         <td>Classes Directory</td>
         <td>Directory containing compiled class files</td>
-        <td><code>/test</code></td>
+        <td><code>/build/classes/main</code></td>
         <td><code>tomcatClassesDir</code></td>
     </tr>
     <tr>

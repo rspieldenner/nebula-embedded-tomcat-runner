@@ -33,3 +33,10 @@ task distZip(type: Zip) {
         into runnableJar.libsDirName
     }
 }
+
+
+import nebula.plugin.publishing.component.CustomComponentPlugin
+
+def conf = project.configurations.maybeCreate('distAll')
+project.configurations.getByName(Dependency.ARCHIVES_CONFIGURATION).extendsFrom(conf)
+CustomComponentPlugin.addArtifact(project, conf.name, distZip, 'all')

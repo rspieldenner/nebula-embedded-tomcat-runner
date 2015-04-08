@@ -1,3 +1,10 @@
+buildscript {
+    repositories { jcenter() }
+    dependencies { classpath "com.netflix.nebula:nebula-plugin-plugin:2.2.+" }
+}
+
+apply plugin: 'nebula-plugin'
+
 allprojects {
     group = 'nebula.tomcat.embedded'
     version = '0.1'
@@ -21,5 +28,12 @@ subprojects {
         testCompile('com.netflix.nebula:nebula-test:2.2.1') {
             exclude group: 'org.codehaus.groovy'
         }
+    }
+}
+
+contacts {
+    'benjamin.muschko@gmail.com' {
+        moniker 'Benjamin Muschko'
+        github 'bmuschko'
     }
 }

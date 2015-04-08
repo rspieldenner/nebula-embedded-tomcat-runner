@@ -7,7 +7,6 @@ apply plugin: 'nebula-plugin'
 
 allprojects {
     group = 'nebula.tomcat.embedded'
-    version = '0.1'
 
     apply plugin: 'idea'
 }

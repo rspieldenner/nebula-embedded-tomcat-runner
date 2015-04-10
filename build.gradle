@@ -6,8 +6,6 @@ buildscript {
 apply plugin: 'nebula-plugin'
 
 allprojects {
-    group = 'nebula.tomcat.embedded'
-
     apply plugin: 'idea'
 }
 
